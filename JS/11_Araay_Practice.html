@@ -1,0 +1,147 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array</title>
+</head>
+<body>
+
+<script>
+  // 11a
+  Array = [10,20,30];
+  Array[2] = 99;
+  console.log(Array);
+
+  // 11b
+  function getLastvalue(newarray) {
+    last = newarray.length - 1
+    return newarray[last]
+  }
+  console.log(getLastvalue([2,4,7,8]));
+  console.log(getLastvalue(['hii','fghj',78,'tyui']));
+
+  // 11c
+  function swapArray(newarray) {
+    last = newarray.length - 1
+    firstVlaue = newarray[0];
+    lastvalue = newarray[last];
+    newarray[last] = firstVlaue;
+    newarray[0] = lastvalue ;
+    return newarray;
+  }
+  console.log([67,89,'Hitesh']);
+  console.log(swapArray([67,89,'Hitesh']))
+  
+  // 11d
+  let arrayCount = [];
+  for(i=0; i<=5; i++){
+    count = 2*i;
+    arrayCount.push(count);
+  }
+  console.log(arrayCount)
+  // 11e
+  let reverseArray = [];
+  for(i = 5; i >=0; i--){
+    count = i;
+    reverseArray.push(count);
+  }
+  console.log(reverseArray);
+  // 11f
+  const arrayWhileCount = [];
+  i = 0;
+  while(i<=10){
+    arrayWhileCount.push(i);
+    i+=2;
+  }
+  console.log(arrayWhileCount);
+
+  i =10;
+  const reverseWhileArray = [];
+  while(i >= 0){
+    reverseWhileArray.push(i);
+    i-= 2;
+  }
+  console.log(reverseWhileArray);
+
+  // 11g & 11 h
+  const increaseArray = [];
+  for(i=0; i < reverseWhileArray.length; i++){
+    reverseWhileArray[i] = reverseWhileArray[i]+1;
+    increaseArray.push(reverseWhileArray[i]);
+  }
+  console.log(increaseArray);
+
+  // 11 i
+  function addNum(array, num){
+    const newarray = [];
+    for (i = 0; i < array.length; i++){
+      newarray.push(array[i] + num);
+    }
+    return newarray;
+  }
+  console.log(addNum([5,2,7], 5));
+
+  // 11 J
+  function addArray(array1,array2){
+    const newArrayAdd = [];
+    for (i = 0; i< array1.length; i++){
+      newArrayAdd.push(array1[i]+array2[i]);
+    }
+    return newArrayAdd;
+  }
+  console.log(addArray([3,4,8],[1,2,3]));
+
+  // 11 K
+  function countPositive(array){
+    num = 0;
+    
+    return num;
+  }
+  console.log(countPositive([6,-2,0,4]));
+
+  // 11 l & m
+  function minmax(array){
+    if(array.length === 0){
+        return [null,null];
+      }
+      
+  let min = array[0];
+  let max = array[0];
+    for (i = 0; i <array.length; i++){
+      
+      if(array[i]< min){
+        min = array[i];
+      }
+      if(array[i] > max){
+        max = array[i];
+      }
+    }
+    return [min,max];
+  }
+  console.log(minmax([3,5,7,2,-10,-2]));
+  console.log(minmax([3]));
+  console.log(minmax([]));
+  
+// This is the min and max 
+  console.log(Math.min([3,5,0,-2])); // this will give error or we can say NAN
+  console.log(Math.min(...[3,5,0,-2])); // this is the right way we have to convert array into spread operator to create individual argument or use apply 
+
+  // 11n
+  
+  function countWord(array){
+    wordArray = {}
+    for( const word of array){
+      if(wordArray[word]){
+        wordArray[word] +=1;
+      }else{
+        wordArray[word] = 1;
+      }
+    }
+    return wordArray;
+  }
+  console.log(countWord(['apple','graphe','sam','cha','apple','nice','sam']));
+</script>
+  
+</body>
+</html>

@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Shopping</title>
+</head>
+<body>
+  <H3>Amazon Shipping Calculator</H3>
+  <h6>Order Below $50 will attract +$10 Shipping charge</h6>
+  <h6>Order Above $50 will Free Shipping</h6>
+
+  <input type="number" id ='amount' 
+  onkeydown="keydownCalculate(event)">
+  <button onclick="
+  calculateOrder()
+  ">Calculate</button>
+
+  <p id="totalAmount"></p>
+
+
+  <script>
+    function keydownCalculate(event){     // event is sometimes not available thus its better to pass it as parameter
+      if (event.key === 'Enter'){
+      calculateOrder();
+  }
+    }
+
+    function calculateOrder(){
+      let inputElement = Number(document.querySelector('#amount').value) ;
+      let shippingAmount;
+      if (inputElement < 50  && inputElement > 0){
+        shippingAmount = inputElement + 10;
+      } else {
+        shippingAmount = inputElement;
+      }
+      document.querySelector('#totalAmount').innerHTML = `$<b>${shippingAmount}</b> is the Total Shipping Amount` 
+    }
+  </script>
+  
+</body>
+</html>

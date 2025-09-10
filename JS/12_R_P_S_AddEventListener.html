@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Projects</title>
+  <link rel="stylesheet" href="CSS_Folder/12_R_P_S_AddEventListener.css">
+</head>
+<body>
+
+  <h1 class="title">Rock Paper Scissor</h1>
+  <div class="note">
+  <h5>Keyboard Shortcuts:</h5>
+  <ul>
+    <li>Rock → <strong>r</strong></li>
+    <li>Paper → <strong>p</strong></li>
+    <li>Scissor → <strong>s</strong></li>
+    <li>AutoPlay → <strong>a</strong></li>
+    <li>Stop AutoPlay → <strong>SpaceBar</strong></li>
+    <li>Reset → <strong>BackSpace</strong></li>
+  </ul>
+</div>
+
+  <button
+  class="iconButton js-rock-button">
+  <img src="/Image/Rock.webp" class ='emote'></button>
+  <button 
+  class="iconButton js-paper-button">
+  <img src="/Image/Paper.webp" class="emote"></button>
+  <button  
+  class="iconButton js-scissor-button">
+  <img src="/Image/Scissor.webp" class="emote"></button>
+
+<p id="Comp_Guess"></p>
+<p id="Result"></p>
+<p id="finalScore"></p>
+
+  <button onclick="
+  resetButton()
+  " class="reset">Reset</button>
+
+  <div id="overlay" class="overlay"></div>
+
+  <div id="confirmBox" class="confirm-box">
+  <p>Do you really want to reset the scores?</p>
+  <button id="yesBtn">Yes</button>
+  <button id="noBtn">No</button>
+</div>
+
+  <button onclick="
+  autoPlay()" 
+  class="autoPlay">AutoPlay</button>
+
+  <script src="javscript_Folder/12_R_P_S_AddEventListener.js"></script>
+
+</body>
+</html>

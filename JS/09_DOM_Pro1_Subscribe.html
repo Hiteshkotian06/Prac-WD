@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Projects</title>
+</head>
+<body>
+  <p>YouTube Subscribe Button</p>
+  <button onclick="
+   Subscribe();"
+  class='Subscribe-Button'>Subscribe</button>
+
+  <script>
+    function Subscribe(){
+      const buttonElement = document.querySelector('.Subscribe-Button')
+      if (buttonElement.innerText === 'Subscribe'){ 
+        // Here we can use innerHTML too but in the Text if we have space then it would not work thus we use innerText
+        buttonElement.innerText = 'Subscribed'
+      } else{
+        buttonElement.innerText = 'Subscribe'
+      }
+    }
+  </script>
+
+</body>
+</html>

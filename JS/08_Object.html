@@ -1,0 +1,76 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Objects</title>
+</head>
+<body>
+  
+  <script>
+    let OurData = {
+      name : 'Hitesh',
+      Age : 23,
+      Job : 'GA & DA',
+      'Shift-timing' : '2 to 8',
+      Job_Salary : {
+        First_Job : 50,
+        Second_Job : 75,
+        Third_Job : 'Shares' 
+      }
+    }
+    console.log(OurData);
+    OurData.House = 'Newly Bought';
+    delete OurData.Job;
+    console.log(OurData.name)
+    console.log(OurData);
+    OurData['rent-Price'] = 2000;
+    console.log(OurData)
+    console.log(OurData.Job_Salary.Third_Job)
+
+    console.log(typeof console)
+
+    // Object to JSON
+    JsonString = JSON.stringify(OurData)
+    console.log(JSON.stringify(OurData))
+    console.log(JSON.parse(JsonString))
+
+    localStorage.setItem(name, 'Hi')
+
+    ourstorage = window.localStorage;
+    console.log(ourstorage)
+
+  // references
+  const Object1 = {
+    me : 'Hitesh'
+  }
+  const Object2 = Object1;
+  console.log(Object2);
+  console.log(Object1 === Object2);
+
+  const Object3 = {
+    me : 'Hitesh'
+  };
+  console.log(Object1 === Object3);  // Here even though Object 3 is same as Object1 still its gives false bcoz of diff reference
+
+  let {me} = Object1;
+  console.log(me);
+
+  let message = "Hello";
+  let Object5 ={
+    message,
+
+    // method : function function1(){
+    //   console.log('Hii My name is who');
+    // }
+
+    method() {
+      console.log('Hii My Name is who')
+    }
+  };
+
+  console.log(Object5.method)
+
+</script>
+</body>
+</html>

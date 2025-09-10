@@ -1,0 +1,159 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>DOM Projects</title>
+    <style>
+      .title {
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: Bold;
+      }
+      .addToCart {
+        background-color: rgb(255, 216, 20);
+        border: none;
+        border-radius: 20px;
+        padding: 4px 20px;
+        margin-bottom: 20px;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+      }
+      .requestNow {
+        background-color: black;
+        color: white;
+        border-radius: 5px;
+        padding: 5px 10px;
+        border: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+      }
+      .scheduleForLater {
+        background-color: rgb(230, 230, 230);
+        border-radius: 5px;
+        padding: 5px 10px;
+        border: none;
+        font-family: Arial, Helvetica, sans-serif;
+        font-weight: bold;
+        margin-bottom: 10px;
+      }
+
+      .gamingButton2 {
+        background-color: rgb(214, 210, 210);
+        border: none;
+        border-radius: 3px;
+        cursor: pointer;
+        font-weight: bold;
+        margin-top: 10px;
+        Padding: 10px 20px; 
+
+      }
+      .onGameButton {
+        background-color: black;
+        color: white;
+        border: none;
+      }
+
+      .GameButton, .MusicButton, .TechButton{
+        background-color: rgb(226, 220, 220);
+        border-radius: 5px;
+        font-weight: Bold;
+        Padding: 10px 20px; 
+        margin-top: 20px;   
+        border: none;    
+      }
+
+      .Game_On, .Music_On, .Tech_On{
+        background-color: black;
+        color: white;
+      }
+    </style>
+  </head>
+  <body>
+    <div>
+      <!-- 10a -->
+      <h3 class="title">Amazon Button</h3>
+      <button onclick="" class="addToCart">Add to Cart</button>
+    </div>
+    <!-- 10b -->
+    <div>
+      <h3 class="title">Uber Button</h3>
+      <button onclick="" class="requestNow">Request Now</button>
+
+      <button onclick="" class="scheduleForLater">Schedule fo later</button>
+    </div>
+    <!-- 10c -->
+    <button class="js-button">Test</button>
+    <!-- 10d  10e and 10f are similar so not doing-->
+    <button onclick="gameToggle()" class="gamingButton2">Gaming</button>
+
+    <!--10g -->
+    <div>
+      <button onclick="comboClick('Game')" class="GameButton">Game</button>
+      <button onclick="comboClick('Music')" class="MusicButton">Music</button>
+      <button onclick="comboClick('Tech')" class="TechButton">Tech</button>
+    </div>
+
+    <!-- 10h -->
+     <input type="number" id ='amount_textbox' 
+  onkeydown="keydownCalculate(event)">
+  <button onclick="
+  calculateOrder()"
+  id ="Calculate_Box">Calculate</button>
+
+  <p id="totalAmount"></p>
+
+
+    <script>
+      let classvar = document.querySelector('.js-button')
+      console.log(classvar.classList.contains('js-button'))
+
+      function gameToggle() {
+        let gamebut = document.querySelector('.gamingButton2')
+        const isActive = gamebut.classList.toggle('onGameButton')
+        gamebut.textContent = isActive ? 'Game On' : 'Gaming'
+      }
+
+
+      // 10g
+      function comboClick(value) {
+        const buttons = ['Game', 'Music', 'Tech']
+
+        buttons.forEach(btnclass => {
+          const button = document.querySelector(`.${btnclass}Button`)
+
+          if(btnclass === value){
+            isActive = button.classList.toggle(`${btnclass}_On`);
+            button.textContent = isActive ? `${btnclass} On` : btnclass;
+          }else{
+            button.classList.remove(`${btnclass}_On`);
+          button.textContent = btnclass;
+          }
+        })
+      }
+
+      // 10h
+          function keydownCalculate(event){     // event is sometimes not available thus its better to pass it as parameter
+      if (event.key === 'Enter'){
+      calculateOrder();
+  }
+    }
+
+    function calculateOrder(){
+      let inputElement = Number(document.querySelector('#amount_textbox').value) ;
+      let shippingAmount;
+      if (inputElement < 0){
+        message = `Error: cost cannot be negative`;
+      } else if(inputElement < 50  && inputElement > 0){
+        shippingAmount = inputElement + 10;
+        message = `$${shippingAmount} is the Total Shipping Amount`;
+      } else {
+        shippingAmount = inputElement;
+        message = `$${shippingAmount} is the Total Shipping Amount`
+
+      } 
+      document.querySelector('#totalAmount').innerHTML = message;
+    }
+  </script>
+    </script>
+  </body>
+</html>

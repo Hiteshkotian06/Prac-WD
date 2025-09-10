@@ -1,0 +1,43 @@
+/* this font-face is best way to add font without adding link in head */
+@font-face {
+  font-family: "Grechen";
+  src: url(../font/GrechenFuemen-Regular.ttf);
+}
+
+body {
+  background-color: rgb(6, 255, 255);
+  font-family: verdana, arial;
+  /* Here the system first show verdana font if couldnt find then arial is used */
+}
+h1 {
+  font-family: "Playfair Display";
+  /* for above i used the link in the html file which is in header
+  also it has space in between so we used "" */
+  color: fuchsia;
+}
+#Id_call {
+  color: #0000ff;
+  font-size: 20px;
+}
+#description h3 {
+  background-color: brown;
+  color: rgb(196, 248, 7);
+  font-size: 1.5em; /* em is relative to the font-size of the element */
+}
+#Font_check1 {
+  font-family: "Sigmar";
+  /* for this text we have to use the link in the html file
+  also it has no space in between so we dont have to use  */
+}
+#Font_check2 {
+  font-family: "Grechen";
+  /* For this text we dont have to use the link we used the 
+  @font-face at the top of the css file */
+}
+.Class_call {
+  color: hsl(145.5, 56%, 38%);
+  font-size: 20px;
+}
+* {
+  color: hsl(348.5, 87%, 50%);
+}

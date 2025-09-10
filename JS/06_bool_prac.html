@@ -1,0 +1,79 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Boolean practice</title>
+</head>
+<body>
+<h3> This is the Button to Choose for Guessing </h3>
+<button onclick="Guess('Heads')">Heads</button>
+<button onclick="Guess('Tails')">Tails</button>
+  <script>
+/* 6a 6b 6c  
+  name = 'Hitesh'
+  let hour = new Date().getHours();
+  let minute = new Date().getMinutes();
+  console.log(hour)
+  console.log(minute)
+  var time = hour + ':' + minute 
+  console.log(time) 
+
+  if(hour >= 6 && hour <= 12){
+    console.log(`Good Morning ${name}`)
+  }
+  else if(hour >= 13 && hour <= 17){
+    console.log(`Good Afternoon ${name}`)
+  } 
+  else{
+    console.log(`Good Night ${name} !!`)
+  }
+     */ 
+  
+  /* 6d 6e 
+  var age = 20;
+  var isHoliday = false;
+  if((age <= 6 || age >= 65) && isHoliday === false){
+    console.log(`Discount`)
+  }
+  else{
+    console.log(`No Discount`)
+  } */ 
+
+/* 6f 6g 6h 6i   
+  let number = Math.random();
+  let result;
+  if(number < 0.5){
+    result = 'Heads'
+    console.log(result)
+  } else{
+    result = 'Tails'
+    console.log(result)
+  }
+
+  function Guess(UserGuess){
+    if(UserGuess === result){
+      alert(`You Guess Right`)
+    } 
+  else{
+    alert('You Guess wrong')
+  }} */ 
+
+  let number = Math.random();
+  let result;
+  if(number < 0.5){
+    result = 'Heads'
+    console.log(result)
+  } else{
+    result = 'Tails'
+    console.log(result)
+  }
+
+  function Guess(UserGuess){
+    UserGuess === result ? alert('You Guess Right') : alert('You Guess wrong')
+  }
+
+  </script>
+
+</body>
+</html>

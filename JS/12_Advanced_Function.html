@@ -1,0 +1,121 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Advanced Funciton</title>
+</head>
+<body>
+  <button onclick="" class="clickClass">Click</button>
+  <script>
+    // Simple Fucntion
+
+    greeting(); //Can be called before the function is written the benefit of naming the function
+    function greeting(){
+      console.log("Hello")
+    };
+    greeting();
+
+
+    // Function as the value in the variable
+    const function2 = function greeting(){
+      console.log("Hello2")
+    };
+    
+    console.log(function2);
+    console.log(typeof function2);  // THis tell us that the value is Function
+    function2();    // We can call the fucntion directly from the variable
+    
+    // Above function2 variable can be wrote without using greeting -- directly const function2 = function(){....}
+
+    // Function inside the Object -- Also called Method -- Function saved inside the Object
+    const Object1 = {
+      fun: function greeting(){
+        console.log("Heello Object")
+      }
+    }
+
+    Object1.fun();
+
+    // Passing a Value inside the function
+    function wish(name){
+      console.log(name);
+    }
+    wish("Hitesh");
+
+    // Passing a Function inside a Function -- Also called Call back function
+    function run(param){
+      param();
+    }
+    run(function(){
+      console.log("Hello Function inside Function")
+    })
+
+    // Asynchronus code
+    setTimeout(function(){
+      console.log("I'm waiting to execute this ")
+    },3000) 
+    console.log("This will execute before the SetTime Code")
+
+    // setInterval(function(){
+    //   console.log("THis will run in interval of assigned time")
+    // }, 5000);
+    // console.log("This is to show that SetInterval is still working");
+
+    sampleArray = ['First', 'Second', 'Third', 'Fourth']
+    sampleArray.forEach(function(value, index) {
+      console.log(index);
+      console.log(value);
+    });
+
+    // Function shortcut
+    const regularFunction = function(param, param2){
+      console.log('hello')
+      return 5;
+    }
+    regularFunction();
+
+    const arrowFunction = (param, param2) => {
+      console.log('hello')
+      return 5;
+    }
+    arrowFunction();
+
+    const noBracket = params => {
+      console.log('No Bracket When only one value is passed')
+    }
+    noBracket();
+
+    const oneLine = () => {return 2 + 3};
+    console.log(oneLine());
+
+    // Inside the Object Function can be written
+    const object2 = {
+      method : () => {
+        //  ....
+      },
+
+      // Above is the way we write function inside the object using arrowfunction
+      // Below we will have the shorthand function whcih is shortcut of above
+      method() {
+        //  ...
+      }
+    };
+
+
+    // EventListener For Click
+    const buttonElement = document.querySelector('.clickClass');
+    buttonElement.addEventListener('click', () => {console.log('Click')});
+
+    // Filter
+    console.log([4,7,-3,6,9].filter((value, index) => {return value >= 0;})) 
+    // if (value >= 0){return true}
+    // else { return false}     -- this is the alternative 
+
+    // Map
+    console.log([4,7,-3,6,9].map((value, index) => {return value +10}))
+    console.log([4,7,-3,6,9].map((value => value +10)))
+    
+  </script>
+</body>
+</html>

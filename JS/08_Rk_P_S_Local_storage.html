@@ -1,0 +1,91 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Local Storage</title>
+</head>
+<body>
+  <p>
+    Rock &nbsp; &nbsp; Paper &ensp; Scissor
+  </p>
+  
+  <button onclick="
+  game('Rock') 
+  ">
+    Rock
+  </button>
+
+  <button onclick="
+  game('Paper')">
+  Paper
+  </button>
+
+  <button onclick="
+  game('Scissor')">
+    Scissor
+  </button>
+
+  <button onclick="
+    score.Win = 0;
+    score.Loss = 0;
+    score.Tie = 0;
+    localStorage.removeItem('Scores');
+      ">
+    Reset
+  </button>
+
+  
+
+  <script>
+
+    let score = JSON.parse(localStorage.getItem('Scores'))
+     || 
+    {
+      Win : 0, Loss : 0, Tie : 0
+    }
+
+    function ComputerGuess(){
+    let guess = Math.random();
+
+      if(guess <= 1/3){
+        return 'Rock'
+      } else if(guess > 1/3 && guess <= 2/3){
+        return 'Paper'
+      } else {
+        return 'Scissor'
+      }
+    }
+
+    function game(Userguess){
+      let computer = ComputerGuess()
+      if (computer === Userguess){
+        score.Tie ++;
+        alert(`It's a tie, You both choosed ${computer}
+Win:${score.Win}, Loss:${score.Loss}, Tie:${score.Tie}`)
+      }
+      else if(
+        computer === 'Rock' && Userguess === 'Paper' ||
+        computer === 'Paper' && Userguess === 'Scissor' ||
+        computer === 'Scissor' && Userguess === 'Rock'
+      ) {
+        score.Win ++;
+        alert(`You Won. You choosed ${Userguess} and computer choosed ${computer}
+Win:${score.Win}, Loss:${score.Loss}, Tie:${score.Tie}`)
+      } else {
+        score.Loss ++
+        alert(`You lose . You choose ${Userguess} and computer choosed ${computer}
+Win:${score.Win}, Loss:${score.Loss}, Tie:${score.Tie}`)
+      }
+    
+      localStorage.setItem('Scores', JSON.stringify(score))
+    }
+  
+
+
+
+
+    
+  </script>
+</body>
+</html>

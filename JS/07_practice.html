@@ -1,0 +1,115 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Practice</title>
+</head>
+<body>
+
+  <button onclick="
+  updatecalc('1'); "> 
+  1</button>
+
+  <button
+        onclick="
+  updatecalc('2')"
+      >2
+      </button>
+
+      <button
+        onclick="
+  updatecalc('3')"
+      >3
+      </button>
+
+      <button
+        onclick="
+  updatecalc(' + ')
+  "
+      >+
+      </button>
+
+      <button onclick="
+      calculator = '' ">
+      Reset</button>
+
+      <button onclick="
+      calculator = eval(calculator);
+      console.log(calculator);
+      ">
+      = </button>
+
+  <script>
+  /* 7a 7b 7c 
+  function greet(name){
+      console.log(`Hii!! Good morning. ${name}`)
+    }
+
+    function newgreet(name){
+      if (! name){
+        console.log(`Hii, Name is not defined but still, Good Morning`)
+      } else {
+        console.log(`Hii!! Name is ${name}`)
+      }
+    }
+
+    greet("Hitesh");
+    newgreet()
+    */ 
+/* 7d , 7e, 7f
+    function conversion(fahrenhit){
+      celcius = (fahrenhit - 32) * 5/9
+      return celcius
+    }
+
+    console.log(conversion(45))
+
+
+    function newconversion(degree , unit){
+      if (unit === 'C'){
+        fahrenhit = (degree * 9/5) + 32
+        return fahrenhit
+      } else if (unit === 'F'){
+        celcius = (degree - 32) * 5/9
+        return celcius
+      } else{
+        return ('Sorry')
+      }
+    }
+    console.log(newconversion(32, 'C'))   */ 
+
+    /* 7g 7h
+    function lenconversion(len, from, to){
+      if (from === 'km' && to === 'cm'){
+        newlen = len * 100000;
+        return newlen;
+      } 
+      else if (from === 'km' && to === 'm'){
+        newlen = len * 1000;
+        return newlen;
+      } else if( from === 'm' && to === 'cm'){
+        newlen = len * 100;
+        return newlen;
+      } else if (from === 'm' && to === 'km'){
+        newlen = len / 1000;
+        return newlen;
+      } else if (from === ' cm' && to === 'km')
+      newlen = len /100000;
+      return newlen;
+    }
+  console.log(lenconversion(345,'km','cm'))
+  */
+
+  // Same thing as calculator but just using function
+  
+  
+  let calculator = '';
+
+  function updatecalc(value){
+    calculator += value;
+    console.log(calculator)
+  }
+  </script>
+</body>
+</html>

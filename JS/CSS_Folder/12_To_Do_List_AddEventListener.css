@@ -1,0 +1,45 @@
+body{
+  background-color:lavender;
+  font-family: Arial;
+}
+.list-grid, .todo_grid{
+  display: grid;
+  grid-template-columns: 200px 200px 100px;
+  column-gap: 20px;
+  row-gap: 5px;
+}
+
+.todo_list{
+  margin-bottom: 10px;
+}
+
+
+.textBox,
+.date,
+.addButton,
+.deleteList {
+  padding: 8px 12px;  
+  border: 1px solid #000000;
+  border-radius: 4px;
+  box-sizing: border-box; 
+}
+
+.addButton, .deleteList {
+  cursor: pointer;
+}
+
+.workNameClass, .dueDateClass{
+  padding: 5px 10px;
+  border: 1px solid #63e829;
+  border-radius: 4px;
+
+}
+
+.addButton{
+  background-color: mediumspringgreen;
+}
+
+.deleteList{
+  background-color: red;
+  align-items: center;
+}

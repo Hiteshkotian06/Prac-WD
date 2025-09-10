@@ -1,0 +1,47 @@
+h1 {
+  border-style: inset;
+  border-width: 10px;
+  border-color: rgb(42, 224, 45);
+  /* above 3 line can be written as -
+  border : 10px inset rgb(42, 224, 45) */
+  border-radius: 20px;
+  align-self: center;
+}
+
+p {
+  border-bottom: 20px solid rgb(255, 0, 0);
+  border-top: 20px dashed rgb(118, 34, 179);
+  border-left: 20px double rgb(230, 15, 140);
+  border-right: 20px dotted rgb(37, 186, 92);
+
+  border-radius: 3px;
+}
+
+h2 {
+  text-shadow: 3px 1px rgb(0, 0, 0);
+  font-style: italic;
+}
+
+#box {
+  box-shadow: 10px 10px 15px 5px rgb(0, 0, 0);
+  border: 1px solid black;
+  width: 100px;
+  height: 100px;
+  margin: 20px;
+  padding: 20px;
+  background-color: rgb(190, 31, 31);
+}
+
+.box {
+  border: 1px solid black;
+  width: 150px;
+  height: 150px;
+}
+#box1 {
+  background: #db1c1c;
+  margin-left: 50px;
+}
+#box2 {
+  background: #1c1cdb;
+  margin: 5px;
+}

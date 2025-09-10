@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Projects</title>
+  <style>
+    body  {
+      font-family: Arial, Helvetica, sans-serif;
+    }
+
+    .Subscribe-Button {
+      border : none;
+      font-weight : Bold;
+      background-color: #000;
+      color : #fff;
+      padding : 10px 15px;
+      border-radius: 20px;
+      cursor: pointer;
+      /* margin-bottom: 25px; */
+    }
+    .After_Click_Subscribe{
+      background-color: #e9e3e3;
+      color: #000;
+    }#amount_textbox {
+      padding: 10px 15px;
+    }
+    #Calculate_Box {
+      padding: 10px 15px;
+      border: none;
+      background-color: rgb(32, 142, 32);
+      color: #fff;
+      cursor: pointer;
+    }
+
+    
+  </style>
+</head>
+<body>
+  <p>YouTube Subscribe Button</p>
+  <button onclick="
+   Subscribe();"
+  class='Subscribe-Button'
+  id="Subscribe_Youtube_Button">Subscribe</button>
+
+<H3>Amazon Shipping Calculator</H3>
+  <h6>Order Below $50 will attract +$10 Shipping charge</h6>
+  <h6>Order Above $50 will Free Shipping</h6>
+
+  <input type="number" id ='amount_textbox' 
+  onkeydown="keydownCalculate(event)">
+  <button onclick="
+  calculateOrder()"
+  id ="Calculate_Box">Calculate</button>
+
+  <p id="totalAmount"></p>
+
+
+  <script>
+    function Subscribe(){
+      const buttonElement = document.querySelector('.Subscribe-Button')
+      if (buttonElement.innerText === 'Subscribe'){ 
+        // Here we can use innerHTML too but in the Text if we have space then it would not work thus we use innerText
+        buttonElement.innerText = 'Subscribed';
+        buttonElement.classList.add('After_Click_Subscribe');
+
+      } else{
+        buttonElement.innerText = 'Subscribe';
+        buttonElement.classList.remove('After_Click_Subscribe');
+      }
+    }
+
+    function keydownCalculate(event){     // event is sometimes not available thus its better to pass it as parameter
+      if (event.key === 'Enter'){
+      calculateOrder();
+  }
+    }
+
+    function calculateOrder(){
+      let inputElement = Number(document.querySelector('#amount_textbox').value) ;
+      let shippingAmount;
+      if (inputElement < 50  && inputElement > 0){
+        shippingAmount = inputElement + 10;
+      } else {
+        shippingAmount = inputElement;
+      }
+      document.querySelector('#totalAmount').innerHTML = `$${shippingAmount} is the Total Shipping Amount` 
+    }
+  </script>
+
+</body>
+</html>

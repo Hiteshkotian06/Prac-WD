@@ -1,0 +1,86 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock_Paper_Scissor</title>
+</head>
+<body>
+  
+  <h1>Rock Paper Scissor</h1>
+
+  <button onclick="
+  Result('Rock')
+  ">Rock</button>
+  <button onclick="
+  Result('Paper')
+  ">Paper</button>
+  <button onclick="
+  Result('Scissor')
+  ">Scissor</button>
+
+<p id="Comp_Guess"></p>
+<p id="Result"></p>
+<p id="finalScore"></p>
+
+  <button onclick="
+  resetButton()
+  ">Reset</button>
+
+  <script>
+    let Scores = JSON.parse(localStorage.getItem('Scores')) ||
+    {
+      Win :0, Loss: 0, Draw : 0
+    };
+
+    function Guess(){  
+      let computerGuess = '';
+      let number = Math.random();
+      if (number <1/3 ){
+        computerGuess = 'Rock';
+      } else if (number >1/3 && number < 2/3){
+        computerGuess = 'Paper';
+      } else {
+        computerGuess = 'Scissor'
+      }
+      return computerGuess;
+    }
+
+
+    function Result(userGuess){
+      computerValue = Guess();
+      let result = '';
+      if (computerValue === userGuess){
+        result = 'Draw';
+        Scores.Draw ++;
+      } else if (userGuess === 'Rock' && computerValue === 'Scissor' ||
+        userGuess === 'Paper' && computerValue === 'Rock' ||
+        userGuess === 'Scissor' && computerValue === 'Paper'
+      ) {
+        result = 'Win';
+        Scores.Win ++;
+
+      } else{
+        result = 'Loss';
+        Scores.Loss ++;
+      }
+
+      document.querySelector('#Comp_Guess').innerHTML=`Computer Guessed : ${computerValue}`;
+      document.querySelector('#Result').innerHTML=`You ${result}`;
+
+
+      localStorage.setItem('Scores', JSON.stringify(Scores));
+
+      document.querySelector('#finalScore').innerHTML = `Win : ${Scores.Win}, Draw : ${Scores.Draw}, Loss : ${Scores.Loss}` ;
+    }
+
+    function resetButton(){
+      Scores = {Win :0, Loss: 0, Draw : 0};
+      localStorage.removeItem('Scores');
+      localStorage.setItem('Scores', JSON.stringify(Scores));
+      document.querySelector('#finalScore').innerHTML = `Win : ${Scores.Win}, Draw : ${Scores.Draw}, Loss : ${Scores.Loss}` ;
+    }
+  </script>
+  
+</body>
+</html>

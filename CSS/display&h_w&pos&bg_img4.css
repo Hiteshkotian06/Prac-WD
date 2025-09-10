@@ -1,0 +1,56 @@
+#div_display {
+  border: 4px solid black;
+  margin-top: 30px;
+  height: 75px;
+  background-color: blue;
+  display: inline-block; /*this make the div all inside the border */
+}
+#span_display {
+  border: 4px solid black;
+  margin-top: 30px;
+  height: 75px;
+  background-color: aqua;
+  display: inline; /*this make the span all inside the border */
+}
+/* inline -> It display in single line 
+    inline-block -> It display in single line but also allow widht and height */
+* {
+  box-sizing: border-box;
+}
+.Box {
+  border: 2px solid black;
+  margin-top: 30px;
+  width: 50%;
+  background-color: red;
+  text-align: center;
+  float: left;
+  overflow: auto; /*this make the div all inside the border */
+
+  max-width: 40%;
+  min-width: 20%;
+}
+#box_pos1 {
+  position: fixed;
+  bottom: 50px;
+  left: 50px;
+  height: 200px;
+  width: 200px;
+  background-color: yellow;
+}
+#box_pos2 {
+  position: relative;
+  top: 50px;
+  left: 50px;
+  height: 100px;
+  width: 100px;
+  background-color: rgb(30, 127, 206);
+}
+/* I can use different ways of postion to make it useful */
+
+body {
+  background-image: url("../Image/main_logo-01.jpeg");
+  background-repeat: no-repeat;
+  /* background-size: cover; this will auto cover whole image */
+  background-attachment: fixed;
+  background-position: center;
+}

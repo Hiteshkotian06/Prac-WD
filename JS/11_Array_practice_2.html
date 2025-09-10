@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Array Practice 2</title>
+</head>
+<body>
+  <script>
+// 11o & 11p
+    function searchArray(array){
+      for(i=0; i<array.length; i++){
+        if(array[i]=== 'search'){
+          return i;
+        }}return '-1';}
+    console.log(searchArray(['new','howru','hai','search','hello', 'search']));
+// 11q
+    function findindex(arrayNew,string){
+      for(i=0; i<arrayNew.length; i++){
+        if(arrayNew[i]===string){
+          return i;
+        }
+      }return '-1';
+    }
+    console.log(findindex(['new','howru','coming','home','hello'],'coming'));
+// 11r & 11s
+    function removeEgg(arrayEgg){
+      newarray =[];
+      eggcount = 0;
+      for(i=0; i<arrayEgg.length; i++){
+        if(arrayEgg[i] === 'egg' && eggcount <2){
+          eggcount ++;
+          continue;
+        }
+        newarray.push(arrayEgg[i]);
+      }return newarray;
+    }
+    console.log(removeEgg(['fruit','egg','mango','apple','egg','egg','aam']));
+// 11t
+    function removeEggReverse(arrayEgg){
+      newarray =[];
+      eggcount = 0;
+      arrayEgg.reverse();
+      for(i=0; i<arrayEgg.length; i++){
+        if(arrayEgg[i] === 'egg' && eggcount <2){
+          eggcount ++;
+          continue;
+        }
+        newarray.push(arrayEgg[i]);
+      }
+      newarray.reverse();
+      return newarray;
+    }
+    console.log(removeEggReverse(['fruit','egg','mango','apple','egg','egg','aam']));
+// 11u
+foods = ['fruit','egg','mango','apple','egg','egg','aam']
+    function removeEggSlice(foods){
+      newarray =[];
+      eggcount =0;
+      newfoods = foods.slice();
+      newfoods.reverse();
+      for(i=0; i<newfoods.length; i++){
+        if(newfoods[i] === 'egg' && eggcount <2){
+          eggcount ++;
+          continue;
+        }
+        newarray.push(newfoods[i]);
+      }
+      newarray.reverse();
+      return newarray;
+    }
+    console.log(removeEggSlice(foods));
+    console.log(foods)
+// 11v
+    function fizzBuzz(){
+      newarray = [];
+      let value ;
+      for (let i=1; i<= 20; i++){
+        if(i %3 ===0){
+          value = 'fizz';
+        }
+        else if (i%5 ===0){
+          value= 'Buzz';
+        }else if(i%3===0 && i%5===0){
+          value ='fizzBuzz';
+        }
+        else {
+          value = i
+        };
+        newarray.push(value);        
+      } return newarray;
+    }
+    console.log(fizzBuzz());
+// 11w
+    function uniqueArray(array){
+      wordArray = [];
+      for (const word of array){
+        if(!wordArray.includes(word)){
+          wordArray.push(word)
+        }
+      }
+      return wordArray;
+    }
+    console.log(uniqueArray(['apple','graphe','sam','cha','apple','nice','sam']));
+// 11 x -- directly in Array_project_2
+ 
+  </script>
+</body>
+</html>

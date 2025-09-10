@@ -1,0 +1,137 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM</title>
+</head>
+<body>
+
+  <!-- 9a -->
+  <button>
+    9a
+  </button>
+  <!-- 9b -->
+  <button id="new_js">
+    9b
+  </button>
+  </br></br></br>
+
+  <!-- 9c -->
+  <button id="head" onclick="
+  display_Text('Head')
+  ">Head</button>
+  <button id="tail" onclick="
+  display_Text('Tail')
+  ">Tail</button>
+
+  <p id="displayText"></p>
+
+  <!--9d & 9e -->
+  <input placeholder="Name" id="name" 
+  onkeydown="
+  enterKey(event);
+  ">
+  <button id="submit" onclick="
+  nameCatcher()
+  ">Submit</button>
+
+  <p id="nameDisplay"></p>
+
+  <!-- 9h -->
+
+  <input placeholder="newName" id="newName" 
+  onkeyup=" keyUP(event)
+  ">
+
+  <p id="newNameDisplay"></p>
+
+  <!-- 9i -->
+  <button id="showQuantity" onclick="cartQuantity('showQuantity')"
+  >Show quantity</button>
+  <button id="addToCart" onclick="cartQuantity('addToCart')"
+  >Add to cart</button>
+  <button id="two" onclick="cartQuantity('two')"
+  >+ 2</button>
+  <button id="three" onclick="cartQuantity('three')"
+  >+ 3</button>
+  <button id="four" onclick="cartQuantity('four')"
+  >+ 4</button>
+  <button id="five" onclick="cartQuantity('five')"
+  >+ 5</button>
+  <button id="remove" onclick="cartQuantity('remove')"
+  >Remove from cart</button>
+  <button id="removeTwo" onclick="cartQuantity('removeTwo')"
+  >- 2</button>
+  <button id="removeThree" onclick="cartQuantity('removeThree')"
+  >- 3</button>
+
+  <p id="quantityOfCart" ></p>
+ 
+
+
+  <script>
+    // 9a
+    console.log(document.querySelector('button'));
+    console.log(document.querySelector('button').innerText);
+
+    // 9b
+    document.querySelector('#new_js').innerHTML = '9b Done!!';
+
+    // 9c
+    function display_Text(value){
+      if(value === 'Head'){
+        document.querySelector('#displayText').innerHTML = 'Head'
+      } else{
+        document.querySelector('#displayText').innerHTML = 'Tail'
+      }
+    } 
+
+    // 9d
+    function nameCatcher(){
+      let Name = document.querySelector('#name').value;
+      document.querySelector('#nameDisplay').innerHTML = Name;
+    }
+
+    // 9e
+    function enterKey(event){
+      if(event.key === 'Enter'){
+        nameCatcher();
+      }
+    }
+
+    // 9h
+    function keyUP(event){
+      document.querySelector('#newNameDisplay').innerHTML = document.querySelector('#newName').value;
+    }
+
+    // 9i
+    function cartQuantity(action){
+      let cart = JSON.parse(localStorage.getItem('cart')) ||  0;
+
+      if(action === 'addToCart'){
+        cart ++;
+      } else if(action === 'two'){
+        cart += 2;
+      } else if(action === 'three'){
+        cart += 3;
+      } else if(action === 'four'){
+        cart+=4;
+      } else if(action === 'five'){
+        cart+=5;
+      } else if(action === 'remove'){
+        cart --;
+      } else if(action === 'removeTwo'){
+        cart -=2;
+      } else if(action === 'removeThree'){
+        cart -=3;
+      }
+
+      localStorage.setItem('cart', JSON.stringify(cart));
+
+      document.querySelector('#quantityOfCart').innerHTML = `Cart Quantity: ${cart}`;
+    }
+    
+  </script>
+</body>
+</html>

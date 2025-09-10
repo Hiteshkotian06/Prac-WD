@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Cart Quantity</title>
+</head>
+<body>
+  <h3>
+    Buy details
+  </h3>
+  <button onclick="
+  console.log(`There is ${cartQuantity} items in your Cart`)
+  ">
+    Show Quantity
+  </button>
+<br><br>
+  <button onclick="
+  cartQuantity++;
+  alert('1 item is successfully added to the cart.')
+  console.log(`Total quanity of items : ${cartQuantity}`)
+  ">
+    Add to Cart
+  </button>
+  &nbsp;
+  <button onclick="
+  cartQuantity+=2
+  alert('2 item is successfully added to the cart.')
+  console.log(`Total quanity of items : ${cartQuantity}`)
+  ">
+    +2
+  </button>
+  &nbsp; &nbsp; 
+  <button onclick="
+  cartQuantity+=3
+    alert('3 item is successfully added to the cart.')
+    console.log(`Total quanity of items : ${cartQuantity}`)
+  ">
+    +3
+  </button>
+  <button onclick="
+  cartQuantity-=3
+    alert('3 item is successfully removed from the cart.')
+    console.log(`Total quanity of items : ${cartQuantity}`)
+  ">
+    -3
+  </button>
+  
+  <br><br>
+  <button onclick="
+  cartQuantity = 0
+  alert('The cart is reset.')
+  ">
+    Reset Cart
+  </button>
+
+  <script>
+    let cartQuantity = 0
+
+    if (cartQuantity){
+      console.log('Cart has Product');
+    }
+  </script>
+</body>
+</html>

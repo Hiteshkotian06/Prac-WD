@@ -1,0 +1,217 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Object</title>
+</head>
+<body>
+<!-- 8h 
+<p>
+  <button onclick="
+    updateCalculation('1');
+  ">1</button>
+
+  <button onclick="
+    updateCalculation('2');
+  ">2</button>
+
+  <button onclick="
+    updateCalculation('3');
+  ">3</button>
+
+  <button onclick="
+    updateCalculation(' + ');
+  ">+</button>
+</p>
+
+<p>
+  <button onclick="
+    updateCalculation('4');
+  ">4</button>
+
+  <button onclick="
+    updateCalculation('5');
+  ">5</button>
+
+  <button onclick="
+    updateCalculation('6');
+  ">6</button>
+
+  <button onclick="
+    updateCalculation(' - ');
+  ">-</button>
+</p>
+
+<p>
+  <button onclick="
+    updateCalculation('7');
+  ">7</button>
+
+  <button onclick="
+    updateCalculation('8');
+  ">8</button>
+
+  <button onclick="
+    updateCalculation('9');
+  ">9</button>
+
+  <button onclick="
+    updateCalculation(' * ');
+  ">*</button>
+</p>
+
+<p>
+  <button onclick="
+    updateCalculation('0');
+  ">0</button>
+
+  <button onclick="
+    updateCalculation('.');
+  ">.</button>
+
+  <button onclick="
+    // Note: eval() takes a string and runs it as code.
+    // Avoid using eval() in real world projects since
+    // it can potentially be given harmful code to run.
+    // Only use eval() for learning purposes.
+    calculation = eval(calculation);
+    console.log(calculation);
+    localStorage.setItem('calculation', calculation);
+  ">=</button>
+
+  <button onclick="
+    updateCalculation(' / ');
+  ">/</button>
+</p>
+
+<p>
+  <button onclick="
+    calculation = '';
+    console.log(calculation);
+  ">Clear</button>
+</p>
+
+8h -->
+  
+<button onclick="
+UserGuess('Heads');
+">
+  Heads
+</button>
+<button onclick="
+UserGuess('Tails');
+">
+  Tails
+</button>
+
+<button onclick="
+UserGuess('Reset');
+">
+  Reset
+</button>
+  <script>
+// 8A
+
+//     const Amazon1 = {
+//       name: 'BasketBall',
+//       price: 2095,
+
+//     }
+//     // 8b
+//     Amazon1.price += 500;
+//     console.log(Amazon1);
+
+//     const Amazon2 = {
+//       name: 'Cricket',
+//       price: 200
+//     }
+// // 8c
+//     Amazon1['delivery-time'] = '3 days';
+
+// // 8d
+//     function compare(Amazon1, Amazon2){
+//         if (Amazon1.price > Amazon2.price) {
+//           return Amazon1.name;
+//         } 
+//         else{
+//           return Amazon2.name;
+//         }
+//       }
+//     console.log(compare(Amazon1, Amazon2));
+
+// // 8e
+//     function isSameProduct(Amazon1,Amazon2) {
+//       if (Amazon1.name === Amazon2.name && Amazon1.price === Amazon2.price ) {
+//         return 'Same';
+//       }
+//       else{ return 'Different'}
+//     }
+//     console.log(isSameProduct(Amazon1, Amazon2));
+
+// // 8f
+//     console.log('Good Morning'.toLowerCase())
+// // 8g
+//     console.log('test'.repeat(3))
+
+// 8h
+    let calculation = localStorage.getItem('calculation') || '';
+
+    function updateCalculation(value) {
+      calculation += value;
+      console.log(calculation);
+    }
+
+    if (!calculation){
+    console.log('There is No data')
+    }
+    else {
+    console.log(localStorage.getItem('calculation'))
+    }
+
+// 8i
+
+let Guessscore = JSON.parse(localStorage.getItem('Guessscore')) || {
+  win: 0,
+  lose: 0
+};
+
+
+function UserGuess(value){
+
+  if (value === 'Reset') {
+    localStorage.removeItem('Guessscore');
+    Guessscore.win = 0;
+    Guessscore.lose = 0;
+    alert('Score has been reset!');
+    return;
+  }
+
+  let number = Math.random();
+  let computerGuess = '';
+
+
+  if (number < 0.5){
+  computerGuess = 'Heads'
+}
+else {
+  computerGuess = 'Tails'
+}
+console.log(`Computer guessed: ${computerGuess}`);
+
+
+  if (value === computerGuess){
+    Guessscore.win ++
+    alert(`User guessed Right!\nWin = ${Guessscore.win}, Loss = ${Guessscore.lose}`);
+  }
+  else {
+    Guessscore.lose ++;
+    alert(`User guessed Loss!\nWin = ${Guessscore.win}, Loss = ${Guessscore.lose}`);
+  }
+  localStorage.setItem('Guessscore', JSON.stringify(Guessscore));
+}
+
+
+  </script>
+</body>
+</html>

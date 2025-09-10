@@ -1,0 +1,92 @@
+<!-- Button, Form -->
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Practice 3</title>
+    <link rel="icon" type="img/jpeg" href="Image/main_logo-01.jpeg" />
+  </head>
+  <body>
+    <h1>Button, Form</h1>
+
+    <!-- Button -->
+    <h3 id="Greeting">
+      Good Morning <br />
+      what is so great about this morning <br />
+      To know -
+    </h3>
+
+    <button
+      onclick="Onclicking()"
+      style="color: cadetblue; border-radius: 25px; height: 25px"
+    >
+      Click Me
+    </button>
+
+    <script>
+      function Onclicking() {
+        document.getElementById("Greeting").innerHTML =
+          "Another day to think about you.";
+      }
+    </script>
+
+    <hr />
+    <!-- Form -->
+    <h2>Form</h2>
+    <hr />
+    <form action="" method="post" enctype="multipart/form-data">
+      <label for="Username">Username :</label>
+      <input type="text" id="Username" placeholder="Joe" required />
+      <br /><br />
+      <label for="Password">Password : </label>
+      <input
+        type="password"
+        id="Password"
+        required
+        minlength="8"
+        maxlength="15"
+      />
+      <br /><br />
+      <label for="Email">Email : </label>
+      <input type="Email" id="Email" required minlength="8" maxlength="15" />
+      <br /><br />
+      <label for="Date">DOB : </label>
+      <input type="Date" id="Date" />
+      <br /><br />
+      <label for="Phone">Phone:</label>
+      <input type="Number" id="Phone" maxlength="10" minlength="10" />
+      <br /><br />
+      <label for="Title">Title</label>
+
+      <input type="radio" id="Mr" name="Title" />
+      <label for="Mr">Mr.</label>
+
+      <input type="radio" id="Mrs." name="Title" />
+      <label for="Mrs.">Mrs.</label>
+
+      <input type="radio" id="Ms." name="Title" />
+      <label for="Ms.">Ms.</label>
+
+      <input type="radio" id="Dr." name="Title" />
+      <label for="Dr.">Dr.</label>
+      <br /><br />
+      <label for="Payment">Payment</label>
+      <select>
+        <option>Wallet</option>
+        <option>Debit Card</option>
+        <option>Credit Card</option>
+        <option>Cash On Delivery</option>
+      </select>
+      <br /><br />
+      <label for="Comment">Comment :</label>
+      <textarea id="Comment" rows="3" cols="20"></textarea>
+      <br /><br />
+      <label for="Picture">Picture :</label>
+      <input type="file" id="Picture" accept="image/jpeg" />
+      <br /><br />
+      <button type="reset">Reset</button>
+      <input type="submit" />
+    </form>
+  </body>
+</html>

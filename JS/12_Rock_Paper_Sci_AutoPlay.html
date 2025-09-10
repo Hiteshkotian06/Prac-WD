@@ -1,0 +1,40 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>DOM Projects</title>
+  <link rel="stylesheet" href="CSS_Folder/12_Rock_Paper_Sci_AutoPlay.css">
+</head>
+<body>
+
+  <h1 class="title">Rock Paper Scissor</h1>
+
+  <button onclick="
+  Result('Rock')" 
+  class="iconButton">
+  <img src="/Image/Rock.webp" class ='emote'></button>
+  <button onclick="
+  Result('Paper')" 
+  class="iconButton">
+  <img src="/Image/Paper.webp" class="emote"></button>
+  <button onclick="
+  Result('Scissor')" 
+  class="iconButton">
+  <img src="/Image/Scissor.webp" class="emote"></button>
+
+<p id="Comp_Guess"></p>
+<p id="Result"></p>
+<p id="finalScore"></p>
+
+  <button onclick="
+  resetButton()
+  " class="reset">Reset</button>
+  <button onclick="
+  autoPlay()" 
+  class="autoPlay">AutoPlay</button>
+
+  <script src="javscript_Folder/12_Rock_Paper_Sci_AutoPlay.js"></script>
+
+</body>
+</html>

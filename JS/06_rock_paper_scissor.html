@@ -1,0 +1,89 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Rock-Paper-Scissor</title>
+</head>
+<body>
+  <p>
+    Rock &nbsp; &nbsp; Paper &ensp; Scissor
+  </p>
+  
+  <button onclick="
+  if (randomNumber <= 1/3){
+    computer = 'Rock';
+  } else if (randomNumber > 1/3 && randomNumber <= 2/3) {
+    computer = 'Paper';
+  } else {
+    computer = 'Scissor';
+  }
+
+  if (computer === 'Rock') {
+    Result = 'Tie';
+  } else if ( computer === 'Paper'){
+    Result = 'Win';
+  } else {
+    Result = 'Lose'
+  }
+
+  alert(`You picked Rock, Computer choosed ${computer}. You ${Result}`)
+  ">
+    Rock
+  </button>
+
+  <button onclick="
+
+  if (randomNumber <= 1/3){
+    computer = 'Rock';
+  } else if (randomNumber > 1/3 && randomNumber <= 2/3) {
+    computer = 'Paper';
+  } else {
+    computer = 'Scissor';
+  }
+
+  if (computer === 'Rock') {
+    Result = 'Win';
+  } else if ( computer === 'Paper'){
+    Result = 'Tie';
+  } else {
+    Result === 'Lose'
+  }
+
+  alert(`You picked Paper, Computer choosed ${computer}. You ${Result}`)
+  ">
+    Paper
+  </button>
+
+  <button onclick="
+
+  if (randomNumber <= 1/3){
+    computer = 'Rock';
+  } else if (randomNumber > 1/3 && randomNumber <= 2/3) {
+    computer = 'Paper';
+  } else {
+    computer = 'Scissor';
+  }
+
+  if (computer === 'Rock') {
+    Result = 'Lose';
+  } else if ( computer === 'Paper'){
+    Result = 'Win';
+  } else {
+    Result = 'Lose'
+  }
+
+  alert(`You picked Scissor, Computer choosed ${computer}. You ${Result}`)
+  ">
+    Scissor
+  </button>
+
+  
+
+  <script>
+    let computer = '';
+    let randomNumber = Math.random();
+
+  </script>
+</body>
+</html>
