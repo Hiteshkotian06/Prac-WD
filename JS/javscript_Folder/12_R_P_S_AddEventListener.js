@@ -36,6 +36,7 @@ function Result(userGuess){
     addEventListnerScores.Loss ++;
   }
 
+  // This gives the emoji and guess by user and computer
   document.querySelector('#Comp_Guess').innerHTML=` Your Guess : <img src =/Image/${userGuess}.webp class="emote">
   Computer Guessed : <img src =/Image/${computerValue}.webp class="emote">`;
   document.querySelector('#Result').innerHTML=`You ${result}`;
@@ -43,6 +44,7 @@ function Result(userGuess){
 
   localStorage.setItem('addEventListnerScores', JSON.stringify(addEventListnerScores));
 
+  // Shows the Scores
   document.querySelector('#finalScore').innerHTML = `Win : ${addEventListnerScores.Win}, Draw : ${addEventListnerScores.Draw}, Loss : ${addEventListnerScores.Loss}` ;
 }
 
@@ -67,7 +69,16 @@ document.body.addEventListener('keydown', (event) => {
   }
 })
 
+// THis is the AutoPlay and StopAutoPlay EventListener  
+document.querySelector('.autoPlay').addEventListener('click', () => {
+  if (!isautoPlaying) {
+    autoPlay();
+  } else {
+    stopAutoPlay();
+  }
+});
 
+// AutoPlay
 let isautoPlaying = false;
 let intervalId;
 
@@ -79,12 +90,15 @@ function autoPlay() {
     const userGuess = Guess();    // This is for userGuess we have to create which genreate a userguess
     Result(userGuess)     // Inside this we have guess for computer already
   }, 1000);
+
   isautoPlaying = true;
   button.innerHTML = "Stop AutoPlay";
   }}
 
+// Stop Play
+
 function stopAutoPlay(){
-  const button = document.querySelector('.autoPlay')
+  const button = document.querySelector('.js-auto-play')
   if(isautoPlaying) {
     clearInterval(intervalId);
     isautoPlaying = false;
@@ -92,14 +106,18 @@ function stopAutoPlay(){
   }
 }    
 
-document.body.addEventListener('keydown', (event) => {
-  if(event.key == 'a'){
-    autoPlay();
+document.body.addEventListener("keydown", (event) => {
+  if (event.key === "a") {
+    if (!isautoPlaying) {
+      autoPlay();
+    }
+  } else if (event.key === " ") {
+    if (isautoPlaying) {
+      event.preventDefault(); // stop the page from scrolling
+      stopAutoPlay();
+    }
   }
-  else if (event.key == ' '){
-    stopAutoPlay();
-  }
-})
+});
     
 
 // function resetButton(){
