@@ -19,7 +19,7 @@
 
 // We will be using the product data directly from the product file in Data file -- /13_Amazon_Project/data/products.js
 
-import {cart} from '../data/cart.js'
+import {cart, addToCart, updateCartQuantity} from '../data/cart.js'
 import { products } from '../data/products.js';
 
 let productHtml = ''
@@ -79,6 +79,22 @@ products.forEach((prod) => {
 
 document.querySelector('.js-productHTML-grid').innerHTML = productHtml;
 
+// The Added message above add to cart function
+function addedMessageShow(productContainer, selectedQuantity){
+      // Keep Added till the quantity is not zero
+    const addedMessage = productContainer.querySelector('.added-to-cart');
+    if (selectedQuantity > 0) {
+      addedMessage.style.opacity = 1;
+    } else {
+      addedMessage.style.opacity = 0;
+    }
+    // hide again after 1 second
+    // setTimeout(() => {
+    //   addedMessage.style.opacity = 0;
+    // }, 1000);
+}
+
+// Add to cart click
 document.querySelectorAll('.js-add-to-cart').forEach((addToCartButton) => {
   addToCartButton.addEventListener('click', () => {
   
@@ -90,42 +106,12 @@ document.querySelectorAll('.js-add-to-cart').forEach((addToCartButton) => {
     const quantitySelect = productContainer.querySelector('select');
     const selectedQuantity = parseInt(quantitySelect.value);
 
-    let matchingItem;
-    cart.forEach((item) => {
-      if(item.prod_id === prod_id){
-        matchingItem = item;
-      }
-    })
+    addToCart(prod_id, selectedQuantity);
 
-    if(matchingItem){
-      matchingItem.quantity = selectedQuantity;
-    } else {
-      cart.push({
-      prod_id,
-      quantity : selectedQuantity
-    });
-    } 
+    updateCartQuantity();
 
-    let cartQuantity = 0;
-    cart.forEach((item) => {
-      cartQuantity += item.quantity;
-    });
-
-    document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
-
-    // Keep Added till the quantity is not zero
-    const addedMessage = productContainer.querySelector('.added-to-cart');
-    if (selectedQuantity > 0) {
-      addedMessage.style.opacity = 1;
-    } else {
-      addedMessage.style.opacity = 0;
-    }
-    // hide again after 1 second
-    // setTimeout(() => {
-    //   addedMessage.style.opacity = 0;
-    // }, 1000);
+    addedMessageShow(productContainer, selectedQuantity);
   
     // console.log(cart)
   });
-
 });
