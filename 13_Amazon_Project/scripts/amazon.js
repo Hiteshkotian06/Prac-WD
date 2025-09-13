@@ -20,6 +20,7 @@
 // We will be using the product data directly from the product file in Data file -- /13_Amazon_Project/data/products.js
 
 import {cart} from '../data/cart.js'
+import { products } from '../data/products.js';
 
 let productHtml = ''
 
