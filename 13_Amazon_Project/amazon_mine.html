@@ -58,8 +58,9 @@
     </div>
 
     <!-- The order matters here as we need to get the data first then the forEachloop which is in amazon.js -->
-     <script src="data/cart.js"></script>
+     
+    <!-- <script src="data/cart.js"></script>  instead of this we will write type="module" in which file we want to access the variable then add export in the "data/cart.js" file for the variable-->
     <script src="data/products.js"></script>
-    <script src="scripts/amazon.js"></script>
+    <script type="module" src="scripts/amazon.js"></script>
   </body>
 </html>
