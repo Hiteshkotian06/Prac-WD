@@ -106,3 +106,12 @@ document.querySelectorAll('.js-delete-link').forEach((link) => {
   deleteContianer.remove();
   })
 })
+
+// Checkout Items 
+
+let cartQuantity = 0;
+cart.forEach((cartItem) => {
+  cartQuantity += cartItem.quantity;
+})
+
+document.querySelector('.js-checkout-items').innerHTML = `${cartQuantity} Items`
