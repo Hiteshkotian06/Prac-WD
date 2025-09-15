@@ -1,4 +1,4 @@
-export const cart = [{
+export let cart = [{
   prod_id : "e43638ce-6aa0-4b85-b27f-e1d07eb678c6",
   quantity : 2
 }, {
@@ -34,4 +34,17 @@ export function updateCartQuantity(){
     });
   
   document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
+}
+
+export function removeFromCart(productId){
+  
+  // let newCart = [];
+  // cart.forEach((cartItem) => {
+  //   if(cartItem.prod_id !== productId){
+  //     newCart.push(cartItem);
+  //   }
+  // })
+  // cart = newCart;
+
+  cart = cart.filter((cartItem => cartItem.prod_id !== productId))  //-- this work same as above also short and clean
 }
