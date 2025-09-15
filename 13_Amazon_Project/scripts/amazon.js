@@ -21,6 +21,7 @@
 
 import {cart, addToCart, updateCartQuantity} from '../data/cart.js'
 import { products } from '../data/products.js';
+import { formatCurrency } from './Utlise/money.js';
 
 let productHtml = ''
 
@@ -45,7 +46,7 @@ products.forEach((prod) => {
       </div>
 
       <div class="product-price">
-        $${(prod.priceCents / 100).toFixed(2)}  <!-- Here I'm using toFixed to get 2 digit after decimal -->
+        $${formatCurrency(prod.priceCents)}
       </div>
 
       <div class="product-quantity-container">
