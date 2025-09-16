@@ -37,9 +37,12 @@ cart.forEach((cartItem) =>{
           <span>
             Quantity: <span class="quantity-label">${cartItem.quantity}</span>
           </span>
-          <span class="update-quantity-link link-primary">
+          <span class="update-quantity-link link-primary js-update-link" data-product-id = ${matchingProduct.id}>
             Update
           </span>
+          <input class="quantity-input">
+          <span class="save-quantity-link link-primary">Save</span>
+  
           <span class="delete-quantity-link link-primary js-delete-link" data-product-id = ${matchingProduct.id}>
             Delete
           </span>
@@ -118,3 +121,65 @@ function updateCheckoutHeader(){
   document.querySelector('.js-checkout-items').innerHTML = `${cartQuantity} Items`
 }
 updateCheckoutHeader();
+
+// Update Button
+// document.querySelectorAll('.js-update-link').forEach((updateButton) => {
+//   updateButton.addEventListener('click', () => {
+//     // Prevent creating multiple inputs if clicked multiple times
+//     if (updateButton.nextElementSibling?.classList.contains('update-quanity-wrapper')) return;
+
+//     // Create wrapper span
+//     const wrapper = document.createElement('span');
+//     wrapper.classList.add('update-quanity-wrapper');
+
+//     // Create input
+//     const input = document.createElement('input');
+//     input.type = 'number';
+//     input.classList.add('update-quanity');
+//     input.value = updateButton.closest('.cart-item-details').querySelector('.quantity-label').textContent;
+
+//     // Create save button
+//     const saveButton = document.createElement('span');
+//     saveButton.classList.add('save-updated-quantity');
+//     saveButton.textContent = 'Save';
+
+//     // Append input and save button to wrapper
+//     wrapper.appendChild(input);
+//     wrapper.appendChild(saveButton);
+
+//     // Insert wrapper after update button
+//     updateButton.parentNode.insertBefore(wrapper, updateButton.nextSibling);
+
+//     // Save button click
+//     saveButton.addEventListener('click', () => {
+//       const newQuantity = parseInt(input.value);
+//       if (isNaN(newQuantity) || newQuantity < 1) return alert('Enter a valid quantity');
+
+//       // Update cart array
+//       const productId = updateButton.closest('.cart-item-container').classList[1].split('-')[2]; // gets id from js-delete-<id>
+//       cart.forEach(item => {
+//         if (item.prod_id === productId) item.quantity = newQuantity;
+//       });
+
+//       // Update display
+//       updateCartDisplay(); // call your combined function
+//       updateButton.closest('.cart-item-details').querySelector('.quantity-label').textContent = newQuantity;
+
+//       // Remove input & save button
+//       wrapper.remove();
+//       saveToStorage(); // save to localStorage
+//     });
+//   });
+// });
+
+// Update Button
+document.querySelectorAll('.js-update-link').forEach((updateButton) => {
+  updateButton.addEventListener('click', () => {
+      const productId = updateButton.dataset.productId;
+
+      const container = document.querySelector(
+        `.js-delete-${productId}`
+      );
+      container.classList.add('is-editing-quantity');
+  })
+})
