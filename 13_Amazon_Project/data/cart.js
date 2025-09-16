@@ -53,6 +53,8 @@ export function updateCartQuantity(){
   
   document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
 }
+// I'm calling it to show the updated number
+updateCartQuantity();
 
 export function removeFromCart(productId){
   
