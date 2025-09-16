@@ -46,6 +46,9 @@ export function addToCart(prod_id, selectedQuantity){
 
 // Cart Update quantity function - in amazon to show number
 export function updateCartQuantity(){
+  const cartQuantityElement = document.querySelector('.js-cart-quantity');
+  if(!cartQuantityElement) return; // do nothing if element is missing
+  
   let cartQuantity = 0;
     cart.forEach((cartItem) => {
       cartQuantity += cartItem.quantity;
@@ -54,7 +57,9 @@ export function updateCartQuantity(){
   document.querySelector('.js-cart-quantity').innerHTML = cartQuantity;
 }
 // I'm calling it to show the updated number
-updateCartQuantity();
+document.addEventListener('DOMContentLoaded', () => {
+  updateCartQuantity();
+});
 
 export function removeFromCart(productId){
   
