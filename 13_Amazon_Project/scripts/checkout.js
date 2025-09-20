@@ -135,6 +135,7 @@ document.querySelectorAll('.js-update-link').forEach((updateButton) => {
 })
 
 // Save button click Reappear Update button
+// Save button function to work on save click and Enter press
 function saveQuantity(productId){
   const container = document.querySelector(`.js-delete-${productId}`);
   container.classList.remove('is-editing-quantity');
