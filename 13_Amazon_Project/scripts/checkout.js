@@ -40,8 +40,8 @@ cart.forEach((cartItem) =>{
           <span class="update-quantity-link link-primary js-update-link" data-product-id = ${matchingProduct.id}>
             Update
           </span>
-          <input class="quantity-input">
-          <span class="save-quantity-link link-primary">Save</span>
+          <input class="quantity-input value-input-${matchingProduct.id}" data-product-id = ${matchingProduct.id}>
+          <span class="save-quantity-link link-primary js-save-link" data-product-id = ${matchingProduct.id}>Save</span>
   
           <span class="delete-quantity-link link-primary js-delete-link" data-product-id = ${matchingProduct.id}>
             Delete
@@ -123,56 +123,6 @@ function updateCheckoutHeader(){
 updateCheckoutHeader();
 
 // Update Button
-// document.querySelectorAll('.js-update-link').forEach((updateButton) => {
-//   updateButton.addEventListener('click', () => {
-//     // Prevent creating multiple inputs if clicked multiple times
-//     if (updateButton.nextElementSibling?.classList.contains('update-quanity-wrapper')) return;
-
-//     // Create wrapper span
-//     const wrapper = document.createElement('span');
-//     wrapper.classList.add('update-quanity-wrapper');
-
-//     // Create input
-//     const input = document.createElement('input');
-//     input.type = 'number';
-//     input.classList.add('update-quanity');
-//     input.value = updateButton.closest('.cart-item-details').querySelector('.quantity-label').textContent;
-
-//     // Create save button
-//     const saveButton = document.createElement('span');
-//     saveButton.classList.add('save-updated-quantity');
-//     saveButton.textContent = 'Save';
-
-//     // Append input and save button to wrapper
-//     wrapper.appendChild(input);
-//     wrapper.appendChild(saveButton);
-
-//     // Insert wrapper after update button
-//     updateButton.parentNode.insertBefore(wrapper, updateButton.nextSibling);
-
-//     // Save button click
-//     saveButton.addEventListener('click', () => {
-//       const newQuantity = parseInt(input.value);
-//       if (isNaN(newQuantity) || newQuantity < 1) return alert('Enter a valid quantity');
-
-//       // Update cart array
-//       const productId = updateButton.closest('.cart-item-container').classList[1].split('-')[2]; // gets id from js-delete-<id>
-//       cart.forEach(item => {
-//         if (item.prod_id === productId) item.quantity = newQuantity;
-//       });
-
-//       // Update display
-//       updateCartDisplay(); // call your combined function
-//       updateButton.closest('.cart-item-details').querySelector('.quantity-label').textContent = newQuantity;
-
-//       // Remove input & save button
-//       wrapper.remove();
-//       saveToStorage(); // save to localStorage
-//     });
-//   });
-// });
-
-// Update Button
 document.querySelectorAll('.js-update-link').forEach((updateButton) => {
   updateButton.addEventListener('click', () => {
       const productId = updateButton.dataset.productId;
@@ -181,5 +131,47 @@ document.querySelectorAll('.js-update-link').forEach((updateButton) => {
         `.js-delete-${productId}`
       );
       container.classList.add('is-editing-quantity');
-  })
+  });
 })
+
+// Save button click Reappear Update button
+function saveQuantity(productId){
+  const container = document.querySelector(`.js-delete-${productId}`);
+  container.classList.remove('is-editing-quantity');
+
+  // Finding the input
+  const quantityInput = document.querySelector(`.value-input-${productId}`);
+  const newQuantity = Number(quantityInput.value);
+
+  // Find the cart item and update it
+  const cartItem = cart.find(item => item.prod_id === productId);
+  if (cartItem) {
+    cartItem.quantity = newQuantity;
+  }
+  // Update UI: quantity text
+  const quantityLabel = document.querySelector(`.js-delete-${productId} .quantity-update`);
+  quantityLabel.innerText = newQuantity;
+
+  // Update checkout header total
+  updateCheckoutHeader();
+
+  // Save to localStorage (so it persists after refresh)
+  localStorage.setItem('cart', JSON.stringify(cart));
+}
+
+document.querySelectorAll('.js-save-link').forEach((savebutton) => {
+  savebutton.addEventListener('click', () => {    
+  const productId = savebutton.dataset.productId;
+  saveQuantity(productId);
+  });
+})
+
+// Enter key inside input
+document.querySelectorAll('.quantity-input').forEach((input) => {
+  input.addEventListener('keydown', (event) => {
+    const productId = input.dataset.productId;
+    if (event.key === 'Enter') { 
+      saveQuantity(productId);
+    }
+  });
+});
